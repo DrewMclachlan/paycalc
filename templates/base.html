@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Paycal</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <style>
+        #c{
+    width: 300px;
+
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      body {
+    padding-top: 105px;
+}
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">Expected Furlough Pay Calculator</a>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault"></div>
+    </nav>
+
+<main role="main" class="container  col-sm-4">
+
+    <br>
+    <div id="d"></div>
+    <p id="y"></p>
+    <div id="con"  style="align-content: center;">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Have you been employed with your current employer for over one tax year? (from April 2019)</label>
+  </div>
+        <br/>
+  <button id="yes"  class="btn btn-primary" style="width:48%">Yes</button>
+        <button id="no"  class="btn btn-info float-right" style="width:48%">No</button>
+</form>
+    </div>
+    </row>
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script>
+      var li = ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March'];
+        $('#con').on('click', '#sub', function(s){
+          s.preventDefault();
+          var a = 0;
+          var e = document.getElementById("start");
+          var result = e.options[e.selectedIndex].id;
+            $('#con').empty();
+                      $('#d').append('<h5>You are entitted to 80% of either:</h5><p>An <b>avarage of your monthly pay</b> form the month you started you can calculate this below</p>');
+
+          $('#con').append('<form id="calc">'  + '<form>');
+
+	for(; result <=11; result++){
+	    $('#calc').append(
+	        '<div class="form-group row">'+
+    '<label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg">'+ li[result] +'</label>'+
+   ' <div class="col-sm-5">'+
+      '<input type="number" style="margin-left:70%;" placeholder="£"class="form-control form-control-md" id="'+ a + '">'+
+    '</div>'+
+  '</div>')
+
+        a = a + 1;
+	}
+
+	$('#calc').append('<button id="calcb" style="width:82%" class="btn btn-primary">Enter</button>')})
+  </script>
+
+<script>
+    $( "#no" ).on( "click", function() {
+        $('#con').empty();
+
+        $('#con').append('<form >'+
+'<div class="form-group">'+
+
+    '<label for="exampleFormControlSelect1">Which month did your employment start</label>'+
+                '<div class="input-group mb-3">'+
+
+    '<select class="form-control" id="start">'+
+      '<option id="0">April 2019</option>'+
+      '<option id="1">May 2019</option>'+
+      '<option id="2">June 2019</option>'+
+      '<option id="3">July 2019</option>'+
+      '<option id="4">August 2019</option>'+
+        '<option id="5">September 2019</option>'+
+     '<option id="6">October 2019</option>'+
+      '<option id="7">November 2019</option>'+
+      '<option id="8">December 2019</option>'+
+      '<option id="9">January 2020</option>'+
+      '<option id="10">February 2020</option>'+
+      '<option id="11">March 2020</option>'+
+   ' </select>'+
+              '<div class="input-group-append">'+
+            '<button id="sub" type=submit class="btn btn-primary">Enter</button>'+
+            '</div> </div> </div> </form>'
+
+        )});
+</script>
+
+  <script>
+      $( "#yes" ).on( "click", function() {
+          $('#d').append('<h5>You are entitted to 80% of either:</h5><p>Your <b>March 2019</b> income or an  <b>avarage of your monthly pay</b> for the tax year which you can calculate this below</p>');
+
+          var li = ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March'];
+        $('#con').empty();
+          $('#con').append('<form id="calc">'  + '<form>');
+        for(var i =0; i <= 11; i ++){
+             $('#calc').append('<div class="form-group row">'+
+    '<label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg">'+ li[i] +'</label>'+
+   ' <div class="col-sm-5">'+
+      '<input type="number" style="margin-left:70%;" placeholder="£"class="form-control form-control-md" id="'+ i + '">'+
+    '</div>'+
+  '</div>')}
+        $('#calc').append('<button id="calcb" class="btn btn-primary" style="width:82%">Enter</button>');
+      })
+  </script>
+
+  <script>
+
+
+        $('#con').on('click', '#calcb', function(s) {
+            s.preventDefault();
+
+            var forms = parent.document.getElementById('calc');
+            var length = forms.length;
+            console.log(length);
+            var total = 0;
+            var re = 0;
+            for(var i = 0; i < length-1; i++){
+                var x = parseInt(parent.document.getElementById(i).value)
+                if(!isNaN(x)){
+                    total = total + x;
+                }
+            }
+            re = total / length;
+            re = Math.round((re / 100) * 80);
+            $('#con').empty();
+            $('#con').append('<h6>You should be entitled to a monthly furlough payment of: £' + re + '</h6>');
+
+        });
+
+  </script>
+
+  </body>
+</html>
