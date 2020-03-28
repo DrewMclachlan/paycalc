@@ -4,6 +4,8 @@
 
     <meta charset="utf-8">
     <title>Paycal</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
@@ -24,11 +26,9 @@
     padding-top: 105px;
 }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+
+
+
     </style>
   </head>
   <body>
@@ -66,7 +66,7 @@
           var e = document.getElementById("start");
           var result = e.options[e.selectedIndex].id;
             $('#con').empty();
-                      $('#d').append('<h5>You are entitted to 80% of either:</h5><p>An <b>avarage of your monthly pay</b> form the month you started you can calculate this below</p>');
+                      $('#d').append('Enter of your <b>net monthly pay</b> from the month you started below</p>');
 
           $('#con').append('<form id="calc">'  + '<form>');
 
@@ -74,15 +74,15 @@
 	    $('#calc').append(
 	        '<div class="form-group row">'+
     '<label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg">'+ li[result] +'</label>'+
-   ' <div class="col-sm-5">'+
-      '<input type="number" style="margin-left:70%;" placeholder="£"class="form-control form-control-md" id="'+ a + '">'+
+   ' <div class="col-xl-8">'+
+      '<input type="number"  placeholder="£"class="form-control form-control-md" id="'+ a + '">'+
     '</div>'+
   '</div>')
 
         a = a + 1;
 	}
 
-	$('#calc').append('<button id="calcb" style="width:82%" class="btn btn-primary">Enter</button>')})
+	$('#calc').append('<button id="calcb" class="col-lg btn btn-primary">Enter</button>')})
   </script>
 
 <script>
@@ -126,11 +126,11 @@
         for(var i =0; i <= 11; i ++){
              $('#calc').append('<div class="form-group row">'+
     '<label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg">'+ li[i] +'</label>'+
-   ' <div class="col-sm-5">'+
-      '<input type="number" style="margin-left:70%;" placeholder="£"class="form-control form-control-md" id="'+ i + '">'+
+   ' <div class="col-xl-8">'+
+      '<input type="number"  placeholder="£"class="form-control form-control-md" id="'+ i + '">'+
     '</div>'+
   '</div>')}
-        $('#calc').append('<button id="calcb" class="btn btn-primary" style="width:82%">Enter</button>');
+        $('#calc').append('<button id="calcb" class="col-lg btn btn-primary">Enter</button>');
       })
   </script>
 
